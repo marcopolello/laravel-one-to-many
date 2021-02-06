@@ -15,6 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+
+            $table -> string('title', 100) -> unique();
+            $table -> text('desc');
+            $table -> tinyInteger('priority') -> unsigned();
+            // relazione 1 task solo 1 dipendente, 1 dipendente più tasks
+            $table -> bigInteger('employee_id') -> unsigned();
+
             $table->timestamps();
         });
     }
