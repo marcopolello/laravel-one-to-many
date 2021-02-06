@@ -2,18 +2,29 @@
 
 @section('content')
 
-  <h1>show DI EMPLOYEE</h1>
+  <h1>show DI EMPLOYEE:  [{{$emp -> id}}]</h1>
+
+  {{-- <div class="">
+    {{$emp -> tasks}}
+  </div> --}}
+
+  <h2>{{$emp -> name}}</h2>
+  <h2>{{$emp -> lastname}}</h2>
+  <h2>{{$emp -> dateOfBirth}}</h2>
 
   <ul>
-    @foreach ($emps as $emp)
-      <li>
-        <a href="{{ route('emp-show')}}"></a>
-        {{$emp -> name}}
-        {{$emp -> lastname}}
-        {{$emp -> dateOfBirth}}
-      </li>
+    @foreach ($emp -> tasks as $task)
+      <a href="{{route('task-show', $task -> id)}}">
+        <li>
+        titolo:{{$task -> title}} <br>
+        description:{{$task -> desc}} <br>
+        priorità:{{$task -> priority}}
+        </li>
+      </a>
     @endforeach
   </ul>
+
+  <a href="{{ route('emps-index')}}"><h1 class="">INDIETRO A EMPLOYEES-INDEX</h1></a>
 
 
 @endsection
