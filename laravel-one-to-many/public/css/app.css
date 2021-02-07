@@ -6,15 +6,12 @@ body {
   font-weight: 200;
   height: 100vh;
   margin: 0;
+  padding: 20px;
 }
 
 .flex-center {
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.content {
-  text-align: center;
 }
 

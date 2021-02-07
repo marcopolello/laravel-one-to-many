@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Task;
+use App\Location;
+use App\Typology;
 
 class MainController extends Controller
 {
@@ -25,5 +27,24 @@ class MainController extends Controller
   public function taskShow($id) {
     $task = Task::findOrFail($id);
     return view('pages.task-show', compact('task'));
+  }
+  // methods x Locations
+  public function locationIndex() {
+    $locations = Location::all();
+    return view('pages.locations-index', compact('locations'));
+  }
+  public function locationShow($id) {
+    $location = Location::findOrFail($id);
+    return view('pages.location-show', compact('location'));
+  }
+
+  // methods x Typologies
+  public function typIndex() {
+    $typs = Typology::all();
+    return view('pages.typologies-index', compact('typs'));
+  }
+  public function typShow($id) {
+    $typ = Typology::findOrFail($id);
+    return view('pages.typology-show', compact('typ'));
   }
 }
