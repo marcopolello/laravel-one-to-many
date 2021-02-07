@@ -15,4 +15,8 @@ class Employee extends Model
   public function tasks() {
     return $this -> hasMany(Task::class);
   }
+  // funzione dedicata per correlazione con location
+  public function locations() {
+    return $this -> belongsToMany(Location::class);
+  }
 }
