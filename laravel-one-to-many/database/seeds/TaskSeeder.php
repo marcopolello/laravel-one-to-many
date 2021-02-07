@@ -13,7 +13,7 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-      factory(Task::class, 20)
+      factory(Task::class, 30)
         ->make()
         ->each(function($task){
           // $emp = Employee::findOrFail(rand(1, 5)); prendo dipendente tra 1 e 5 partendo dall'id.

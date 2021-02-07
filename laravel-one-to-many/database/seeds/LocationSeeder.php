@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Employee;
-class EmployeeSeeder extends Seeder
+use App\Location;
+class LocationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class EmployeeSeeder extends Seeder
      */
     public function run()
     {
-      factory(Employee::class, 30) -> create();
+      factory(Location::class, 10) -> create();
     }
 }
