@@ -37,7 +37,14 @@ class MainController extends Controller
   }
   public function taskStore(Request $request){
     $data = $request -> all();
-    dd($data);
+    // dd($data);
+    // Task::create($request -> all()); non si può perche non gli ho ancora associato l'id_employee
+    $emp = Employee::findOrFail($data['employee_id']);
+    // data è un array quindi vado a prendermi l'elemento selezionato dall'utente dentro all'array
+    $task = Task::make($request -> all());
+    $task -> employee() -> associate($emp);
+    $task -> save();
+    return redirect() -> route('tasks-index');
   }
 
   // methods x Locations
