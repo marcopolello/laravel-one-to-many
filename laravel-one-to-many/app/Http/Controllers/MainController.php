@@ -44,6 +44,8 @@ class MainController extends Controller
     $task = Task::make($request -> all());
     $task -> employee() -> associate($emp);
     $task -> save();
+    $typs = Typology::findOrFail($data['typologies']);
+    $task -> typologies() -> attach($typs);
     return redirect() -> route('tasks-index');
   }
 
