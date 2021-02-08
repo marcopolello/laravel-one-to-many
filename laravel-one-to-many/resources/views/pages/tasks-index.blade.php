@@ -16,6 +16,7 @@
         employee_id:{{$task -> employee_id}}
         </a>
       </li>
+      <span><p><a href="{{ route('task-edit', $task -> id)}}">EDIT TASK</a></p></span>
     @endforeach
   </ul>
 

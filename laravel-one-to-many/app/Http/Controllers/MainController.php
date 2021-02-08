@@ -48,6 +48,26 @@ class MainController extends Controller
     $task -> typologies() -> attach($typs);
     return redirect() -> route('tasks-index');
   }
+  public function taskEdit($id) {
+    $emps = Employee::all();
+    $typs = Typology::all();
+    $task = Task::findOrFail($id);
+    return view('pages.task-edit',
+      compact('emps', 'typs', 'task')
+    );
+  }
+  public function taskUpdate(Request $request, $id) {
+    $data = $request -> all();
+    // dd($data);
+    $emp = Employee::findOrFail($data['employee_id']);
+    $task = Task::findOrFail($id);
+    $task -> update($data);
+    $task -> employee() -> associate($emp);
+    $task -> save();
+    $typs = Typology::findOrFail($data['typologies']);
+    $task -> typologies() -> sync($typs);
+    return redirect() -> route('tasks-index');
+  }
 
   // methods x Locations
   public function locationIndex() {
