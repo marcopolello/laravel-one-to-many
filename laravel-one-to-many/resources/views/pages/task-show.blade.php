@@ -4,16 +4,20 @@
 
   <h1>show DI TASK:  [{{$task -> id}}]</h1>
   <h1><a href="{{route('tasks-index')}}">INDIETRO</a></h1>
+  {{-- @php
+      dd($task -> typologies)
+  @endphp --}}
+
 
   <h2>titolo:{{$task -> title}}</h2>
   <h2>descrizione:{{$task -> desc}}</h2>
   <h2>priorità: [{{$task -> priority}}]</h2>
+  <h2>tipologie del task:</h2>
   <ul>
-    @foreach ($typs as $typ)
-      @if ($typ )
-
-      @endif
-
+    @foreach ($task -> typologies as $typology)
+      <li>
+        {{ $typology -> name}}
+      </li>
     @endforeach
   </ul>
 

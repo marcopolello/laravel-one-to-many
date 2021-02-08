@@ -13,6 +13,8 @@ Route::get('/tasks', 'MainController@taskIndex')
 -> name('tasks-index');
 Route::get('/task/{id}', 'MainController@taskShow')
 -> name('task-show');
+Route::get('/create','MainController@taskCreate')
+-> name('task-create');
 
 // rotte per Locations
 Route::get('/locations', 'MainController@locationIndex')

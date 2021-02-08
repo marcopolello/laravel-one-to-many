@@ -22,7 +22,7 @@ class Task extends Model
   //   -> count() < 1;
   // }
   public function typologies() {
-    return $this -> belongsTo(Typology::class);
+    return $this -> belongsToMany(Typology::class);
   }
 
 }

@@ -30,6 +30,10 @@ class MainController extends Controller
     $typs = Typology::all();
     return view('pages.task-show', compact('task', 'typs'));
   }
+  public function taskCreate() {
+    $emps = Employee::all();
+    return view('pages.task-create', compact('emps'));
+  }
 
   // methods x Locations
   public function locationIndex() {
