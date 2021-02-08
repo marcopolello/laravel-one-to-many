@@ -32,7 +32,12 @@ class MainController extends Controller
   }
   public function taskCreate() {
     $emps = Employee::all();
-    return view('pages.task-create', compact('emps'));
+    $typs = Typology::all();
+    return view('pages.task-create', compact('emps', 'typs'));
+  }
+  public function taskStore(Request $request){
+    $data = $request -> all();
+    dd($data);
   }
 
   // methods x Locations

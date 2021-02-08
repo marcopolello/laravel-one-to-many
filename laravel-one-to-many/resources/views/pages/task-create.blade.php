@@ -8,7 +8,9 @@
   'desc',
   'priority', --}}
 
-  <form action="index.html" method="post">
+  <form action="{{route('task-store')}}" method="post">
+    @csrf
+    @method('POST')
 
     <label for="title">title</label>
     <input type="text" name="title">
@@ -34,6 +36,17 @@
       @endforeach
     </select>
 
+    <br>
+
+    <label for="typologies[]">Typologies:</label> <br>
+    @foreach ($typs as $typ)
+      <input
+      type="checkbox"
+      name="typologies[]"
+      value="{{ $typ -> id}}"> {{ $typ -> name}} <br>
+    @endforeach
+
+    <br>
     <br>
 
     <input type="submit" name="" value="salva">
