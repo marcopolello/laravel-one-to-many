@@ -19,6 +19,7 @@ class MainController extends Controller
     $emp = Employee::findOrFail($id);
     return view('pages.emp-show', compact('emp'));
   }
+
   // methods x Tasks
   public function taskIndex() {
     $tasks = Task::all();
@@ -26,8 +27,10 @@ class MainController extends Controller
   }
   public function taskShow($id) {
     $task = Task::findOrFail($id);
-    return view('pages.task-show', compact('task'));
+    $typs = Typology::all();
+    return view('pages.task-show', compact('task', 'typs'));
   }
+
   // methods x Locations
   public function locationIndex() {
     $locations = Location::all();

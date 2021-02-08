@@ -12,15 +12,25 @@
   <h2>{{$emp -> lastname}}</h2>
   <h2>{{$emp -> dateOfBirth}}</h2>
 
+  <h2>tasks:</h2>
   <ul>
     @foreach ($emp -> tasks as $task)
-      <a href="{{route('task-show', $task -> id)}}">
-        <li>
-        titolo:{{$task -> title}} <br>
-        description:{{$task -> desc}} <br>
-        priorità:{{$task -> priority}}
-        </li>
-      </a>
+      {{-- @php
+        dd($task)
+      @endphp --}}
+      {{-- @if ($task -> contains('employee_id'))
+        <h2>non ci sono tasks</h2>
+      @endif --}}
+      @if (isset($emp -> id))
+        <a href="{{route('task-show', $task -> id)}}">
+          <li>
+          titolo:{{$task -> title}} <br>
+          description:{{$task -> desc}} <br>
+          priorità:{{$task -> priority}}
+          </li>
+        </a>
+      @endif
+
     @endforeach
   </ul>
 

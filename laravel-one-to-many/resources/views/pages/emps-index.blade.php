@@ -3,7 +3,11 @@
 @section('content')
 
   <h1>INDEX DI EMPLOYEES</h1>
-  
+  <h2>
+    <a href="{{route('tasks-index')}}">INDEX TASKS</a>
+  </h2>
+
+
 
   <ul>
     @foreach ($emps as $emp)
