@@ -15,9 +15,12 @@ class Task extends Model
   public function employee() {
     return $this -> belongsTo(Employee::class);
   }
-  public function check() {
-    return $this -> employee() ->exists();
-  }
+  // public function employeeOnTasks() {
+  //   return $this
+  //   -> employee()
+  //   -> where('employee_id', $employee_id)
+  //   -> count() < 1;
+  // }
   public function typologies() {
     return $this -> belongsTo(Typology::class);
   }

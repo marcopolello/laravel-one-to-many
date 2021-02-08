@@ -16,12 +16,12 @@
   <ul>
     @foreach ($emp -> tasks as $task)
       {{-- @php
-        dd($task)
+        dd($emp -> tasks)
       @endphp --}}
-      {{-- @if ($task -> contains('employee_id'))
+      {{-- @if ($emp -> tasks -> exist())
         <h2>non ci sono tasks</h2>
       @endif --}}
-      @if (isset($emp -> id))
+      @if ($emp -> tasks -> count() >= 1)
         <a href="{{route('task-show', $task -> id)}}">
           <li>
           titolo:{{$task -> title}} <br>
@@ -29,6 +29,8 @@
           priorità:{{$task -> priority}}
           </li>
         </a>
+      @else
+        <h2>non ci sono tasks</h2>
       @endif
 
     @endforeach
