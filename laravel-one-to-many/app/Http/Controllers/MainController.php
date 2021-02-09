@@ -79,13 +79,5 @@ class MainController extends Controller
     return view('pages.location-show', compact('location'));
   }
 
-  // methods x Typologies
-  public function typIndex() {
-    $typs = Typology::all();
-    return view('pages.typologies-index', compact('typs'));
-  }
-  public function typShow($id) {
-    $typ = Typology::findOrFail($id);
-    return view('pages.typology-show', compact('typ'));
-  }
+  
 }

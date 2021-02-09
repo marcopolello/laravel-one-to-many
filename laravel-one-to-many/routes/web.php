@@ -24,14 +24,24 @@ Route::get('/edit/task/{id}', 'MainController@taskEdit')
 Route::post('/update/task/{id}','MainController@taskUpdate')
 -> name('task-update');
 
-// rotte per Locations
+// rotte per Locations ---
 Route::get('/locations', 'MainController@locationIndex')
 -> name('location-index');
 Route::get('/location/{id}', 'MainController@locationShow')
 -> name('location-show');
 
-// rotte per Typologies
-Route::get('/typologies', 'MainController@typIndex')
+// rotte per Typologies ---
+Route::get('/typologies', 'TypologyController@typIndex')
 -> name('typs-index');
-Route::get('/typ/{id}', 'MainController@typShow')
+Route::get('/typ/{id}', 'TypologyController@typShow')
 -> name('typ-show');
+// CREATE
+Route::get('/create/typ','TypologyController@typCreate')
+-> name('typ-create');
+Route::post('/store/typ','TypologyController@typStore')
+-> name('typ-store');
+// EDIT
+Route::get('/edit/typ/{id}', 'TypologyController@typEdit')
+-> name('typ-edit');
+Route::post('/update/typ/{id}','TypologyController@typUpdate')
+-> name('typ-update');

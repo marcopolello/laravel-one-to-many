@@ -3,6 +3,7 @@
 @section('content')
 
   <h1>INDEX DI typologies</h1>
+  <h1><a href="{{ route('typ-create')}}">CREATE NEW TYP</a></h1>
 
 
   <ul>
