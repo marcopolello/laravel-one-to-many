@@ -24,4 +24,12 @@ class TypologyController extends Controller
     $typs = Typology::all();
     return view('pages.typology-create', compact('tasks', 'typs'));
   }
+  public function typStore(Request $request) {
+    $data = $request -> all();
+    // dd($data);
+    $newTyp = Typology::create($data);
+    $tasks = Task::findOrFail($data['task_id']);
+    $newTyp -> tasks() -> attach($tasks);
+    return redirect() -> route('typs-index');
+  }
 }

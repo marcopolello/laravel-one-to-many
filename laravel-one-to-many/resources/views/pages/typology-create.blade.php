@@ -9,7 +9,7 @@
     @method('POST')
 
     <label for="name">name</label>
-    <input type="text" name="title">
+    <input type="text" name="name">
 
     <br>
 
