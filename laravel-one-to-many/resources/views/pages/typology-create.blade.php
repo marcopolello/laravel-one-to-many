@@ -19,12 +19,12 @@
     <br>
     <br>
 
-    <label for="task_id[]">Tasks:</label> <br>
+    <label for="tasks[]">Tasks:</label> <br>
     @foreach ($tasks as $task)
       {{-- {{ $task}} --}}
       <input
       type="checkbox"
-      name="task_id[]"
+      name="tasks[]"
       value="{{ $task -> id}}"> [{{ $task -> id}}]{{ $task -> title}} <br>
     @endforeach
 

@@ -12,7 +12,8 @@
         <a href="{{ route('typ-show', $typ -> id)}}">
         {{$typ -> name}}
         {{$typ -> desc}}
-        </a>
+      </a>
+        <a style="margin-left: 15px;" href="{{route('typ-edit', $typ -> id)}}">EDIT</a>
       </li>
     @endforeach
   </ul>

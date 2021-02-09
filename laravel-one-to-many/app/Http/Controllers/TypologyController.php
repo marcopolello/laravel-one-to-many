@@ -28,8 +28,32 @@ class TypologyController extends Controller
     $data = $request -> all();
     // dd($data);
     $newTyp = Typology::create($data);
-    $tasks = Task::findOrFail($data['task_id']);
+    $tasks = Task::findOrFail($data['tasks']);
     $newTyp -> tasks() -> attach($tasks);
+    return redirect() -> route('typs-index');
+  }
+  // edit e update
+  public function typEdit($id) {
+    $tasks = Task::all();
+    $typ = Typology::findOrFail($id);
+    return view('pages.typology-edit',
+      compact('typ', 'tasks')
+    );
+  }
+  public function typUpdate(Request $request, $id) {
+    $data = $request -> all();
+    // dd($data);
+    $typ = Typology::findOrFail($id);
+    $typ -> update($data);
+    if (array_key_exists('tasks', $data)) {
+      $tasks = Task::findOrFail($data['tasks']);
+      $typ -> tasks() -> sync($tasks);
+    } else{
+      $typ -> tasks() -> sync([]);
+      // oppure
+      // $tasks = [];
+    }
+
     return redirect() -> route('typs-index');
   }
 }
