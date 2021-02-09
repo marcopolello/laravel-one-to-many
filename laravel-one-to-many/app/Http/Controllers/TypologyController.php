@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use App\Employee;
@@ -26,6 +27,10 @@ class TypologyController extends Controller
   }
   public function typStore(Request $request) {
     $data = $request -> all();
+    Validator::make($data, [
+            'name' => 'required|min:5|max:20',
+            'desc' => 'required|min:5|max:200'
+        ]) -> validate();
     // dd($data);
     $newTyp = Typology::create($data);
     $tasks = Task::findOrFail($data['tasks']);
