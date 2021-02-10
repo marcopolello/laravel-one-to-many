@@ -42,7 +42,7 @@ class MainController extends Controller
     // Validazione
     Validator::make($data, [
         'title' => 'required|min:2|max:100',
-        'description' => 'required|min:10|',
+        'desc' => 'required|min:10|',
         'priority' => 'digits_between:1,5',
         'employee_id' => 'required',
         'typologies' => 'required'
@@ -69,7 +69,7 @@ class MainController extends Controller
     $data = $request -> all();
     Validator::make($data, [
       'title' => 'required|min:2|max:100',
-      'description' => 'required|min:10|',
+      'desc' => 'required|min:10|',
       'priority' => 'digits_between:1,5',
       'employee_id' => 'required',
       'typologies' => 'required'

@@ -31,6 +31,9 @@
       name="tasks[]"
       value="{{ $task -> id}}"> [{{ $task -> id}}]{{ $task -> title}} <br>
     @endforeach
+    @error('tasks')
+      <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
+    @enderror
 
     <br>
     <br>

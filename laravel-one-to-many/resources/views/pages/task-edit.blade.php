@@ -42,7 +42,9 @@
           </option>
         @endforeach
       </select>
-
+      @error('priority')
+        <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
+      @enderror
       <br><br>
       {{-- @php
         dd($task -> typologies);
@@ -68,6 +70,9 @@
         {{ $typ -> name }}
         <br>
       @endforeach
+      @error('typologies')
+        <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
+      @enderror
       <br><br>
       <input type="submit" value="salva">
   </form>

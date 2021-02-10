@@ -39,7 +39,7 @@
 
     <br>
 
-    <label for="priority">employee</label>
+    <label for="employee_id">employee</label>
     <select name="employee_id">
       @foreach ($emps as $emp)
         <option value="{{$emp -> id}}">
@@ -47,7 +47,9 @@
         </option>
       @endforeach
     </select>
-
+    @error('priority')
+      <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <br>
 
     <label for="typologies[]">Typologies:</label> <br>
@@ -57,7 +59,9 @@
       name="typologies[]"
       value="{{ $typ -> id}}"> {{ $typ -> name}} <br>
     @endforeach
-
+    @error('typologies')
+      <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <br>
     <br>
 
