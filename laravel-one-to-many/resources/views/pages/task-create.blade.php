@@ -15,15 +15,27 @@
     <label for="title">title</label>
     <input type="text" name="title">
 
+    @error('title')
+      <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+
     <br>
 
     <label for="desc">desc</label>
     <input type="text" name="desc">
 
+    @error('desc')
+      <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+
     <br>
 
     <label for="priority">priority</label>
     <input type="text" name="priority">
+
+    @error('priority')
+      <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
 
     <br>
 

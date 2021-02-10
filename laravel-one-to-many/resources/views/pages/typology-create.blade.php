@@ -10,12 +10,16 @@
 
     <label for="name">name</label>
     <input type="text" name="name">
-
+    @error('name')
+      <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <br>
 
     <label for="desc">description</label>
     <input type="text" name="desc">
-
+    @error('desc')
+      <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <br>
     <br>
 

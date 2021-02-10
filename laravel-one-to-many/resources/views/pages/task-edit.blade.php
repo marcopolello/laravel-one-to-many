@@ -8,14 +8,25 @@
   <form action="{{ route('task-update', $task -> id) }}" method="POST">
       @csrf
       @method('POST')
-      <label for="name">Name</label>
-      <input name="name" type="text" value="{{ $task -> title }}">
+      <label for="title">Name</label>
+      <input name="title" type="text" value="{{ $task -> title }}">
+      @error('title')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+
       <br>
       <label for="description">Description</label>
       <input name="description" type="text" value="{{ $task -> desc }}">
+      @error('desc')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+
       <br>
       <label for="priority">Priority</label>
       <input name="priority" type="text" value="{{ $task -> priority }}">
+      @error('priority')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
       <br>
 
       <label for="employee_id">Employee</label>

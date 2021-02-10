@@ -16,12 +16,16 @@
 
     <label for="name">name</label>
     <input type="text" name="name" value="{{$typ -> name}}">
-
+    @error('name')
+      <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <br>
 
     <label for="desc">description</label>
     <input type="text" name="desc" value="{{$typ -> desc}}">
-
+    @error('desc')
+      <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
     <br>
     <br>
 
