@@ -29,7 +29,8 @@ class TypologyController extends Controller
     $data = $request -> all();
     Validator::make($data, [
             'name' => 'required|min:5|max:20',
-            'desc' => 'required|min:5|max:200'
+            'desc' => 'required|min:5|max:200',
+            'tasks' => 'required'
         ]) -> validate();
     // dd($data);
     $newTyp = Typology::create($data);
@@ -47,6 +48,11 @@ class TypologyController extends Controller
   }
   public function typUpdate(Request $request, $id) {
     $data = $request -> all();
+    Validator::make($data, [
+      'name' => 'required|min:5|max:20',
+      'desc' => 'required|min:5|max:200',
+      'tasks' => 'required'
+    ]) -> validate();
     // dd($data);
     $typ = Typology::findOrFail($id);
     $typ -> update($data);

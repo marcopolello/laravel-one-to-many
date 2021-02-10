@@ -39,6 +39,14 @@ class MainController extends Controller
   public function taskStore(Request $request){
     $data = $request -> all();
     // dd($data);
+    // Validazione
+    Validator::make($data, [
+        'title' => 'required|min:2|max:100',
+        'description' => 'required|min:10|',
+        'priority' => 'digits_between:1,5',
+        'employee_id' => 'required',
+        'typologies' => 'required'
+    ]) -> validate();
     // Task::create($request -> all()); non si può perche non gli ho ancora associato l'id_employee
     $emp = Employee::findOrFail($data['employee_id']);
     // data è un array quindi vado a prendermi l'elemento selezionato dall'utente dentro all'array
@@ -59,6 +67,13 @@ class MainController extends Controller
   }
   public function taskUpdate(Request $request, $id) {
     $data = $request -> all();
+    Validator::make($data, [
+      'title' => 'required|min:2|max:100',
+      'description' => 'required|min:10|',
+      'priority' => 'digits_between:1,5',
+      'employee_id' => 'required',
+      'typologies' => 'required'
+    ]) -> validate();
     // dd($data);
     $emp = Employee::findOrFail($data['employee_id']);
     $task = Task::findOrFail($id);
