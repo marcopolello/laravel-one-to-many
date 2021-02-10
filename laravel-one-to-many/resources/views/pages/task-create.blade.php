@@ -16,7 +16,7 @@
     <input type="text" name="title">
 
     @error('title')
-      <div class="alert alert-danger">{{ $message }}</div>
+      <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
     @enderror
 
     <br>
@@ -25,7 +25,7 @@
     <input type="text" name="desc">
 
     @error('desc')
-      <div class="alert alert-danger">{{ $message }}</div>
+      <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
     @enderror
 
     <br>
@@ -34,7 +34,7 @@
     <input type="text" name="priority">
 
     @error('priority')
-      <div class="alert alert-danger">{{ $message }}</div>
+      <div style="color:red;"  class="alert alert-danger">{{ $message }}</div>
     @enderror
 
     <br>
